@@ -4,20 +4,17 @@
 
 const header = document.getElementById("header");
 
-window.addEventListener("scroll", () => {
+// ==============================
+// WHATSAPP (número centralizado)
+// ==============================
 
-    if(window.scrollY > 80){
+const WHATSAPP_NUMERO = "5515998174641";
 
-        header.classList.add("scrolled");
+document.querySelectorAll(".wpp-link").forEach(link => {
 
-    }else{
-
-        header.classList.remove("scrolled");
-
-    }
+    link.href = `https://wa.me/${WHATSAPP_NUMERO}`;
 
 });
-
 
 // ==============================
 // ANIMAÇÃO DAS SEÇÕES
@@ -43,6 +40,24 @@ function revealSection(){
 
 }
 
-window.addEventListener("scroll", revealSection);
+// ==============================
+// SCROLL (header + reveal)
+// ==============================
+
+window.addEventListener("scroll", () => {
+
+    if(window.scrollY > 80){
+
+        header.classList.add("scrolled");
+
+    }else{
+
+        header.classList.remove("scrolled");
+
+    }
+
+    revealSection();
+
+});
 
 revealSection();
